@@ -2,6 +2,8 @@ package _03_Conways_Game_of_Life;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import javax.swing.Box.Filler;
+
 public class Cell implements Drawable{
 	public boolean isAlive = false;
 	
@@ -53,9 +55,12 @@ public class Cell implements Drawable{
 	@Override
 	public void draw(Graphics g) {
 	if(isAlive == true) {
-		g.clearRect(x, y, cellSize, cellSize);
+		g.setColor(Color.BLUE);
+		g.fillRect(x, y, cellSize, cellSize);
 	}
-		
+	else {
+		g.drawRect(x, y, cellSize, cellSize);
+	}
 		
 		
 		
