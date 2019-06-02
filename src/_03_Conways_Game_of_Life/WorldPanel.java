@@ -133,13 +133,13 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 			counter++;
 		}
 		}
-		if(y!=cellsPerRow) {
+		if(y<cellsPerRow-1) {
 		if(cells[x][y+1].isAlive) {
 			counter++;
 		}
 		}
 		
-		if(x!=cellsPerRow) {
+		if(x<cellsPerRow-1) {
 		if(cells[x+1][y].isAlive) {
 			counter++;
 		}
@@ -151,19 +151,19 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 		}
 		}
 		
-		if(y!=cellsPerRow && x!=cellsPerRow) {
+		if(y<cellsPerRow-1 && x<cellsPerRow-1) {
 		if(cells[x+1][y+1].isAlive) {
 			counter++;
 		}
 		}
 		
-		if(y!=cellsPerRow && x!=0) {
+		if(y<cellsPerRow-1 && x!=0) {
 		if(cells[x-1][y+1].isAlive) {
 			counter++;
 		}
 		}
 		
-		if(y!=0 && x!=cellsPerRow) {
+		if(y!=0 && x<cellsPerRow-1) {
 		if(cells[x+1][y-1].isAlive) {
 			counter++;
 		}
