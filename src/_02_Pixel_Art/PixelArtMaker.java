@@ -3,7 +3,12 @@ package _02_Pixel_Art;
 import java.awt.FlowLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class PixelArtMaker implements MouseListener{
@@ -11,7 +16,7 @@ public class PixelArtMaker implements MouseListener{
 	private GridInputPanel gip;
 	private GridPanel gp;
 	ColorSelectionPanel csp;
-	
+	private JButton saveButton;	
 	public void start() {
 		gip = new GridInputPanel(this);	
 		window = new JFrame("Pixel Art");
@@ -22,6 +27,7 @@ public class PixelArtMaker implements MouseListener{
 		window.pack();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setVisible(true);
+
 	}
 
 	public void submitGridData(int w, int h, int r, int c) {
@@ -62,4 +68,5 @@ public class PixelArtMaker implements MouseListener{
 	@Override
 	public void mouseExited(MouseEvent e) {
 	}
+	
 }
