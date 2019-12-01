@@ -38,6 +38,7 @@ public class GridInputPanel extends JPanel{
 	
 	private void submit() {
 		boolean valid = false;
+		System.out.println("test");
 		int w = -1;
 		int h = -1;
 		int r = -1;

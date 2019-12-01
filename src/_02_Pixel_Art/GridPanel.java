@@ -46,17 +46,27 @@ public class GridPanel extends JPanel {
 		p = new Pixel[rows][cols];
 
 		// 3. Iterate through the array and initialize each element to a new pixel.
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < cols; j++) {
-				p[i][j] = new Pixel(pixelWidth, pixelHeight);
+		
+		File f = new File("src/_02_Pixel_Art/saved.dat");
+		if(f.length() == 0) {
+			for (int i = 0; i < rows; i++) {
+				for (int j = 0; j < cols; j++) {
+					p[i][j] = new Pixel(pixelWidth, pixelHeight);
+				}
 			}
 		}
-		Data data = new Data(windowWidth, windowHeight);
+		else {
+			Data load = load();
+			for (int i = 0; i < rows; i++) {
+				for (int j = 0; j < cols; j++) {
+					p[i][j] = load.pixel[i][j];
+				}
+			}
+		}
+		Data data = new Data(p, windowWidth, windowHeight);
 		button.addActionListener((e) ->{
 			if(e.getSource() == button) {
 				save(data);
-				Data load = load();
-				System.out.println(load.height);
 			}
 		});
 		
@@ -111,4 +121,5 @@ public class GridPanel extends JPanel {
 			return null;
 		}
 	}
+	
 }
